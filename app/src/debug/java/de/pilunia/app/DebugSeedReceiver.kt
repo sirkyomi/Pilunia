@@ -52,7 +52,9 @@ class DebugSeedReceiver : BroadcastReceiver() {
         val c = PiluniaApp.container(context)
         val today = LocalDate.now()
         val start = today.minusDays(45).toEpochDay()
-        c.settings.update { it.copy(onboardingDone = true, userName = name) }
+        c.settings.update {
+            it.copy(onboardingDone = true, userName = name, appearance = de.pilunia.app.data.AppearanceMode.SYSTEM, largeText = false)
+        }
         if (empty) {
             c.repository.replaceAll(emptyList(), emptyList())
             return
