@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pilunia</string>
+
+    <color name="hintergrund">#FFF7F4</color>
+    <color name="icon_start">#B9A2FB</color>
+    <color name="icon_end">#9A7CF2</color>
+
+    <style name="Theme.Pilunia" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/hintergrund</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Zifferblatt und Kopf des nativen Zeitdialogs in den App-Farben. -->
+    <style name="Pilunia.TimePickerWidget.Light" parent="android:Widget.Material.Light.TimePicker">
+        <item name="android:headerBackground">#7A5CC7</item>
+        <item name="android:numbersBackgroundColor">#F3EEFE</item>
+        <item name="android:numbersSelectorColor">#7A5CC7</item>
+        <item name="android:numbersTextColor">@color/timepicker_numbers_light</item>
+        <item name="android:numbersInnerTextColor">@color/timepicker_numbers_inner_light</item>
+    </style>
+
+    <style name="Pilunia.TimePickerWidget.Dark" parent="android:Widget.Material.TimePicker">
+        <item name="android:headerBackground">#3A2E55</item>
+        <item name="android:numbersBackgroundColor">#2F2642</item>
+        <item name="android:numbersSelectorColor">#B9A2FB</item>
+        <item name="android:numbersTextColor">@color/timepicker_numbers_dark</item>
+        <item name="android:numbersInnerTextColor">@color/timepicker_numbers_inner_dark</item>
+    </style>
+
+    <!-- Nativer Zeitdialog in den App-Farben (Primär bzw. „Auswahl“ im Dunkelmodus). -->
+    <style name="Pilunia.TimePicker.Light" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:timePickerStyle">@style/Pilunia.TimePickerWidget.Light</item>
+        <item name="android:colorAccent">#7A5CC7</item>
+        <item name="android:colorPrimary">#7A5CC7</item>
+        <item name="android:colorBackground">#FFFFFF</item>
+        <item name="android:textColorPrimary">#2E2440</item>
+        <item name="android:textColorSecondary">#5F5676</item>
+        <item name="android:dialogCornerRadius">28dp</item>
+    </style>
+
+    <style name="Pilunia.TimePicker.Dark" parent="android:Theme.Material.Dialog">
+        <item name="android:timePickerStyle">@style/Pilunia.TimePickerWidget.Dark</item>
+        <item name="android:colorAccent">#B9A2FB</item>
+        <item name="android:colorPrimary">#7A5CC7</item>
+        <item name="android:colorBackground">#241D30</item>
+        <item name="android:textColorPrimary">#F3EEF9</item>
+        <item name="android:textColorSecondary">#B3A9C7</item>
+        <item name="android:dialogCornerRadius">28dp</item>
+    </style>
+
+    <style name="Theme.Pilunia.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/hintergrund</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Pilunia</item>
+    </style>
+</resources>

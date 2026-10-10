@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hintergrundebene des App-Symbols: Creme vom Rand aus docs/appicon.png (das Gesicht liegt im Vordergrund). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#FDE6D5" />
+</shape>

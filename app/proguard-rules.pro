@@ -1,0 +1,4 @@
+-keepattributes *Annotation*, InnerClasses
+-keep,includedescriptorclasses class de.pilunia.app.**$$serializer { *; }
+-keepclassmembers class de.pilunia.app.** { *** Companion; }
+-keepclasseswithmembers class de.pilunia.app.** { kotlinx.serialization.KSerializer serializer(...); }
