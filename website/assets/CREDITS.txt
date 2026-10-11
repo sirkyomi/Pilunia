@@ -1,0 +1,12 @@
+Pilunia-Figuren: Originalgrafiken aus docs/char im Pilunia-Repository.
+App-Screenshots und App-Symbol: Originale aus docs/screenshots im Pilunia-Repository.
+Für das Web wurden die Bilder als WebP gespeichert; die Inhalte sind unverändert.
+
+Outfit: Copyright 2021 The Outfit Project Authors.
+Atkinson Hyperlegible Next: Copyright 2020-2024 The Atkinson Hyperlegible Next Project Authors.
+Die Schrift enthält Pilunias Anpassung der Null ohne Schrägstrich, wie in der App.
+Schriften: SIL Open Font License 1.1; vollständige Texte unter assets/licenses.
+
+Lucide: https://lucide.dev / https://github.com/lucide-icons/lucide
+Symbole: ISC-Lizenz, einschließlich der Hinweise auf die zugrundeliegenden Feather-Symbole.
+Vollständiger Lizenztext unter assets/licenses/Lucide.txt.

@@ -24,6 +24,9 @@ damit du rechtzeitig weißt, wann eine neue Packung fällig ist.
 
 ---
 
+Die Website liegt in [`website/`](website/). Hinweise zur lokalen Vorschau und
+Veröffentlichung auf GitHub Pages stehen in der [Website-Anleitung](docs/website.md).
+
 ## Was Pilunia kann
 
 | | |
