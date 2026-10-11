@@ -129,7 +129,7 @@ Mit `--ei soon 2` wird stattdessen ein Testmedikament angelegt, das in zwei Minu
 | Daten | Room (Medikamente, Uhrzeiten, Einnahmen), DataStore (Einstellungen) |
 | Erinnerungen | `AlarmManager` mit exakten Weckern, Full-Screen-Intent, Neuplanung nach Neustart und Zeitänderung |
 | Export | `PdfDocument` für den Arztbericht, CSV (UTF-8, Semikolon), Backup als JSON |
-| Schriften | Outfit (Titel, Zahlen) und Atkinson Hyperlegible Next (Text) |
+| Schriften | Outfit (Titel, Zahlen) und Atkinson Hyperlegible Next (Text, mit 0 ohne Schrägstrich – siehe [`tools/fonts`](tools/fonts)) |
 | Symbole | [Lucide](https://lucide.dev) |
 
 ```
@@ -147,7 +147,7 @@ Alle Screens stammen aus [`Pilunia.leinwand`](Pilunia.leinwand) – mit Designsy
 
 ## Lizenzen
 
-- Schriften [Outfit](https://github.com/google/fonts/tree/main/ofl/outfit) und [Atkinson Hyperlegible Next](https://github.com/google/fonts/tree/main/ofl/atkinsonhyperlegiblenext): SIL Open Font License 1.1
+- Schriften [Outfit](https://github.com/google/fonts/tree/main/ofl/outfit) und [Atkinson Hyperlegible Next](https://github.com/google/fonts/tree/main/ofl/atkinsonhyperlegiblenext): SIL Open Font License 1.1 (Atkinson Hyperlegible Next in angepasster Fassung: 0 ohne Schrägstrich)
 - [Lucide Icons](https://lucide.dev): ISC-Lizenz
 
 ---
