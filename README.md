@@ -106,7 +106,11 @@ cd Pilunia
 ./gradlew assembleRelease
 ```
 
-Die APK liegt danach unter `app/build/outputs/apk/release/`.
+Die APK liegt danach unter `app/build/outputs/apk/release/`. Lokal ist sie mit dem Debug-Schlüssel signiert.
+
+### Neue Version veröffentlichen
+
+Unter **Actions → Release → Run workflow** auf `main` starten und wählen, welcher Teil der Version steigt (`patch`, `minor`, `major`). Der Workflow zählt ab dem letzten `v*`-Tag hoch, baut die APK mit dem Release-Schlüssel aus den Repo-Secrets (`PILUNIA_KEYSTORE_BASE64`, `PILUNIA_KEYSTORE_PASSWORD`, `PILUNIA_KEY_ALIAS`, `PILUNIA_KEY_PASSWORD`) und legt Tag und Release mit `Pilunia-x.y.z.apk` an.
 
 <details>
 <summary><b>Testdaten im Debug-Build</b></summary>

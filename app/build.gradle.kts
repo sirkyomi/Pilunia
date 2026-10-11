@@ -14,8 +14,23 @@ android {
         applicationId = "de.pilunia.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        // Der Release-Workflow setzt beides per -PversionCode/-PversionName.
+        versionCode = (findProperty("versionCode") as String?)?.toInt() ?: 1
+        versionName = findProperty("versionName") as String? ?: "1.0"
+    }
+
+    // Release-Schlüssel kommt im Release-Workflow aus den Repo-Secrets;
+    // ohne ihn (lokal) wird wie bisher mit dem Debug-Schlüssel signiert.
+    val releaseKeystore = System.getenv("PILUNIA_KEYSTORE")?.let { file(it) }
+    signingConfigs {
+        if (releaseKeystore != null) {
+            create("release") {
+                storeFile = releaseKeystore
+                storePassword = System.getenv("PILUNIA_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("PILUNIA_KEY_ALIAS")
+                keyPassword = System.getenv("PILUNIA_KEY_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
@@ -23,7 +38,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
         }
     }
     compileOptions {
