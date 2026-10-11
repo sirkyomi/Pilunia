@@ -22,6 +22,8 @@ import de.pilunia.app.ui.onboarding.OnboardingScreen
 import de.pilunia.app.ui.onboarding.WelcomeScreen
 import de.pilunia.app.ui.reminder.ConfirmedFlow
 import de.pilunia.app.ui.reminder.ReminderFlow
+import de.pilunia.app.ui.reminder.ReminderExample
+import de.pilunia.app.ui.reminder.ReminderExampleScreen
 import java.time.LocalDate
 
 @Composable
@@ -81,6 +83,11 @@ fun PiluniaNavHost(nav: NavHostController, startDestination: String) {
             )
         }
         composable(Routes.NOTIFICATIONS) { NotificationsScreen(nav) }
+        composable(Routes.REMINDER_EXAMPLE, arguments = listOf(navArgument("example") { type = NavType.StringType })) {
+            val example = ReminderExample.entries.firstOrNull { example -> example.name == it.arguments?.getString("example") }
+                ?: ReminderExample.SINGLE
+            ReminderExampleScreen(example, onClose = { nav.backOrMain() })
+        }
         composable(Routes.SETTINGS, arguments = listOf(navArgument("page") { type = NavType.StringType })) {
             SettingsPageScreen(nav, SettingsPage.valueOf(it.arguments!!.getString("page")!!))
         }

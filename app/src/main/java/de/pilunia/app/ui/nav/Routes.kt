@@ -43,6 +43,10 @@ object Routes {
     /** 21 Benachrichtigungen. */
     const val NOTIFICATIONS = "settings/notifications"
 
+    /** Vollbild-Beispiele mit lokalen Beispieldaten. */
+    const val REMINDER_EXAMPLE = "settings/reminder-example/{example}"
+    fun reminderExample(example: String) = "settings/reminder-example/$example"
+
     /** Weitere Einstellungsseiten aus „Mehr“ (siehe [SettingsPage]). */
     const val SETTINGS = "settings/page/{page}"
     fun settings(page: SettingsPage) = "settings/page/${page.name}"
