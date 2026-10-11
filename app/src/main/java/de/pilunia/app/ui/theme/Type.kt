@@ -50,7 +50,10 @@ private fun family(file: String, weight: Int): FontFamily = synchronized(familie
 /** Outfit – Titel und Zahlen (Gewicht 700). */
 val Outfit: FontFamily get() = family(Fonts.OUTFIT, 700)
 
-/** Atkinson Hyperlegible Next – Fließtext und Beschriftungen (Gewicht 400). */
+/**
+ * Atkinson Hyperlegible Next – Fließtext und Beschriftungen (Gewicht 400). Die Datei ist angepasst:
+ * Die 0 hat keinen Schrägstrich, passend zu Outfit (siehe tools/fonts/patch-atkinson-zero.js).
+ */
 val Atkinson: FontFamily get() = family(Fonts.ATKINSON, 400)
 
 private val CenteredLineHeight = LineHeightStyle(
