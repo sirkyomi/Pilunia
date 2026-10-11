@@ -1,0 +1,96 @@
+name: Release
+
+# Startet per Knopfdruck unter Actions → Release → „Run workflow“.
+# Zählt die Version ab dem letzten v*-Tag hoch, baut die signierte APK
+# und veröffentlicht sie als GitHub-Release mit neuem Tag.
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Welcher Teil der Version wird erhöht?
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Version bestimmen
+        id: version
+        env:
+          BUMP: ${{ inputs.bump }}
+        run: |
+          last=$(git tag --list 'v*' --sort=-v:refname | head -n1)
+          IFS=. read -r major minor patch <<< "${last#v}"
+          major=${major:-0}; minor=${minor:-0}; patch=${patch:-0}
+          case "$BUMP" in
+            major) major=$((major + 1)); minor=0; patch=0 ;;
+            minor) minor=$((minor + 1)); patch=0 ;;
+            patch) patch=$((patch + 1)) ;;
+          esac
+          name="$major.$minor.$patch"
+          # 1.2.3 → 10203; muss bei jedem Release steigen, damit Android das Update annimmt.
+          code=$((major * 10000 + minor * 100 + patch))
+          echo "Letzte Version: ${last:-keine} → neu: $name (versionCode $code)"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Release-Schlüssel bereitstellen
+        env:
+          KEYSTORE_BASE64: ${{ secrets.PILUNIA_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::Secret PILUNIA_KEYSTORE_BASE64 fehlt – ohne festen Schlüssel ließen sich Updates nicht installieren."
+            exit 1
+          fi
+          echo "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/release.jks"
+          echo "PILUNIA_KEYSTORE=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
+
+      - name: APK bauen
+        env:
+          PILUNIA_KEYSTORE_PASSWORD: ${{ secrets.PILUNIA_KEYSTORE_PASSWORD }}
+          PILUNIA_KEY_ALIAS: ${{ secrets.PILUNIA_KEY_ALIAS }}
+          PILUNIA_KEY_PASSWORD: ${{ secrets.PILUNIA_KEY_PASSWORD }}
+        run: |
+          ./gradlew assembleRelease \
+            -PversionName=${{ steps.version.outputs.name }} \
+            -PversionCode=${{ steps.version.outputs.code }}
+          cp app/build/outputs/apk/release/app-release.apk "Pilunia-${{ steps.version.outputs.name }}.apk"
+
+      - name: Release veröffentlichen
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.name }}
+        run: |
+          cat > notes.md <<EOF
+          ## Installation
+
+          \`Pilunia-$VERSION.apk\` auf dem Handy herunterladen (Android 8 oder neuer), antippen und die Installation aus dieser Quelle erlauben. Eine vorhandene Pilunia-Installation wird dabei aktualisiert, die Daten bleiben erhalten.
+
+          Pilunia ersetzt keine ärztliche Beratung.
+          EOF
+          gh release create "v$VERSION" "Pilunia-$VERSION.apk#Pilunia-$VERSION.apk (Android 8+)" \
+            --target "$GITHUB_SHA" \
+            --title "Pilunia $VERSION" \
+            --notes-file notes.md \
+            --generate-notes
