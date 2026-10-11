@@ -122,7 +122,7 @@ class Notifier(private val context: Context) {
         val snoozePi = ActionReceiver.pending(context, ActionReceiver.ACTION_SNOOZE_30, day, minute)
 
         val b = NotificationCompat.Builder(context, channel)
-            .setSmallIcon(R.drawable.ic_stat_pill)
+            .setSmallIcon(R.drawable.ic_stat_pilunia)
             .setColor(0xFF7A5CC7.toInt())
             .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.pilunia_winken_small))
             .setContentTitle(title)
@@ -168,7 +168,7 @@ class Notifier(private val context: Context) {
 
     private fun base(channel: String, title: String, text: String) =
         NotificationCompat.Builder(context, channel)
-            .setSmallIcon(R.drawable.ic_stat_pill)
+            .setSmallIcon(R.drawable.ic_stat_pilunia)
             .setColor(0xFF7A5CC7.toInt())
             .setContentTitle(title)
             .setContentText(text)
