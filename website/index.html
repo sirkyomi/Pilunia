@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFF7F4">
+  <meta name="description" content="Pilunia erinnert dich an deine Medikamente und zählt deinen Vorrat mit. Für Android, ohne Konto und ohne Cloud.">
+  <title>Pilunia – Deine Medikamente. Liebevoll im Blick.</title>
+  <link rel="icon" href="assets/images/appicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/appicon.png">
+  <link rel="preload" href="assets/fonts/outfit.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-next.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <header class="site-header container">
+    <a class="wordmark" href="./" aria-label="Pilunia Startseite">pilunia<svg class="mobile-heart icon" aria-hidden="true"><use href="assets/icons.svg#heart"></use></svg></a>
+    <nav aria-label="Hauptnavigation">
+      <a class="nav-link" href="#funktionen">Funktionen</a>
+      <a class="nav-link" href="#einblicke">Einblicke</a>
+      <a class="nav-link" href="#datenschutz">Datenschutz</a>
+      <a class="button nav-download" href="https://github.com/sirkyomi/Pilunia/releases/latest"><span class="desktop-label">APK herunterladen</span><span class="mobile-label">Download</span></a>
+    </nav>
+  </header>
+  <main id="inhalt">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Deine Medikamente.<br>Liebevoll im Blick.</h1>
+        <p class="hero-intro">Pilunia erinnert dich an deine Einnahme und zählt deinen Vorrat mit. Damit im Alltag ein Gedanke weniger bleibt.</p>
+        <a class="button hero-download" href="https://github.com/sirkyomi/Pilunia/releases/latest">Für Android herunterladen</a>
+        <p class="install-requirement"><span class="desktop-label">APK vom neuesten GitHub Release · Android 8.0+</span><span class="mobile-label">Android 8.0+ · APK vom GitHub Release</span></p>
+        <p class="privacy-note"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#shield-check"></use></svg><span class="desktop-label">Ohne Konto. Deine Daten bleiben auf deinem Handy.</span><span class="mobile-label">Ohne Konto. Nur auf deinem Handy.</span></p>
+      </div>
+      <div class="hero-art">
+        <div class="hero-stage">
+          <img class="hero-phone" src="assets/images/heute.webp" width="432" height="960" alt="Pilunia: Heute mit nächster Einnahme, Vorratswarnung und Medikamentenübersicht" fetchpriority="high">
+          <img class="hero-mascot" src="assets/images/wave.webp" width="1254" height="1254" alt="Pilunia winkt dir zu" fetchpriority="high">
+        </div>
+        <div class="reminder-toast"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#bell-ring"></use></svg>Zeit für deine Tablette</div>
+      </div>
+    </section>
+
+    <section class="features container" id="funktionen" aria-labelledby="features-title">
+      <h2 id="features-title">Ein bisschen weniger <span class="mobile-break">dran denken.</span></h2>
+      <p class="section-intro">Vom ersten Wecker bis zur nächsten Packung.</p>
+      <div class="feature-main-grid">
+        <article class="feature-card reminder-card">
+          <h3>Zur richtigen <span class="mobile-break">Zeit da.</span></h3>
+          <p>Erinnerungen auf die Minute, auch auf dem Sperrbildschirm. Mit „Später erinnern“, wenn es gerade nicht passt.</p>
+          <img class="alarm-mascot" src="assets/images/alarm.webp" width="1254" height="1254" alt="Pilunia mit Wecker" loading="lazy">
+          <div class="reminder-fragment" aria-label="Beispiel einer Erinnerung um 08:00 Uhr">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#bell-ring"></use></svg>
+            <div><strong class="reminder-time">08:00</strong><span class="reminder-caption">Zeit für deine Tablette</span></div>
+            <span class="snooze-label">Später erinnern</span>
+          </div>
+        </article>
+        <article class="feature-card stock-card">
+          <h3>Jede Tablette zählt.</h3>
+          <p>Blister-Zählung zeigt deinen Vorrat. Pilunia warnt, bevor ein neues Rezept nötig ist.</p>
+          <img class="pills-mascot" src="assets/images/pills.webp" width="1254" height="1254" alt="Pilunia hält einen Blister" loading="lazy">
+          <div class="blister" role="img" aria-label="Beispiel eines Blisters mit verbleibenden und bereits genommenen Tabletten">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i>
+          </div>
+        </article>
+      </div>
+      <div class="feature-support-grid">
+        <article class="feature-card support-card">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar-days"></use></svg>
+          <h3>Dein Verlauf.<br>Gut verständlich.</h3>
+          <p>Kalender, Einnahmetreue und Serien zeigen, wie deine Einnahmen verlaufen.</p>
+          <div class="feature-strip week" aria-hidden="true"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span></div>
+        </article>
+        <article class="feature-card support-card">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar-clock"></use></svg>
+          <h3>So, wie dein<br>Plan es vorsieht.</h3>
+          <p>Täglich, an Wochentagen oder bei Bedarf. Auch mit Einnahmepausen wie 21 + 7.</p>
+          <div class="feature-strip cycle"><span>21 Tage Einnahme</span><span>7 Tage Pause</span></div>
+        </article>
+        <article class="feature-card support-card">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#file-down"></use></svg>
+          <h3>Für deinen<br>nächsten Arzttermin.</h3>
+          <p>Einnahmeplan als PDF teilen. Verlauf als CSV exportieren und alles per Datei sichern.</p>
+          <div class="feature-strip formats"><span>PDF</span><span>CSV</span><span>Backup</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="screenshots container" id="einblicke" aria-labelledby="screenshots-title">
+      <h2 id="screenshots-title">Ein Blick in <span class="mobile-break">deinen Alltag.</span></h2>
+      <p class="section-intro">Heute, Vorrat und Verlauf. <span class="mobile-break">In hell und dunkel<span class="desktop-label">, so wie du es magst</span>.</span></p>
+      <div class="screenshot-grid">
+        <div class="screenshot-pair">
+          <figure class="screenshot"><img src="assets/images/heute.webp" width="432" height="960" alt="Heute: nächste Einnahme und Vorratswarnung im Hellmodus" loading="lazy"><figcaption>Heute · Hell</figcaption></figure>
+          <figure class="screenshot dark"><img src="assets/images/dunkel_heute.webp" width="432" height="960" alt="Heute: Medikamentenübersicht im Dunkelmodus" loading="lazy"><figcaption>Heute · Dunkel</figcaption></figure>
+          <p class="pair-label">Heute · Hell und Dunkel</p>
+        </div>
+        <div class="screenshot-pair">
+          <figure class="screenshot"><img src="assets/images/detail.webp" width="432" height="960" alt="Vorrat im Blister und Rezept-Notiz im Hellmodus" loading="lazy"><figcaption>Vorrat im Blister · Hell</figcaption></figure>
+          <figure class="screenshot dark"><img src="assets/images/dunkel_detail.webp" width="432" height="960" alt="Vorrat im Blister im Dunkelmodus" loading="lazy"><figcaption>Vorrat im Blister · Dunkel</figcaption></figure>
+          <p class="pair-label">Vorrat im Blister · Hell und Dunkel</p>
+        </div>
+        <div class="screenshot-pair">
+          <figure class="screenshot"><img src="assets/images/verlauf.webp" width="432" height="960" alt="Einnahmeverlauf mit Kalender im Hellmodus" loading="lazy"><figcaption>Einnahmeverlauf · Hell</figcaption></figure>
+          <figure class="screenshot dark"><img src="assets/images/dunkel_verlauf.webp" width="432" height="960" alt="Einnahmeverlauf mit Kalender im Dunkelmodus" loading="lazy"><figcaption>Einnahmeverlauf · Dunkel</figcaption></figure>
+          <p class="pair-label">Einnahmeverlauf · Hell und Dunkel</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy-section container" id="datenschutz" aria-labelledby="privacy-title">
+      <div class="privacy-band">
+        <div class="shield-tile"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#shield-check"></use></svg></div>
+        <div class="privacy-copy"><h2 id="privacy-title">Deine Daten <span class="mobile-break">bleiben bei dir.</span></h2><p>Auf deinem Handy. Ohne Konto und ohne Cloud.<br class="desktop-label"> Du entscheidest, wann du eine Sicherung oder einen Export teilst.</p><p class="no-account">Keine Anmeldung nötig.</p></div>
+        <img src="assets/images/cool.webp" width="1254" height="1254" alt="Pilunia mit Sonnenbrille" loading="lazy">
+      </div>
+    </section>
+
+    <section class="download-section container" aria-labelledby="download-title">
+      <div class="download-band">
+        <img src="assets/images/heart.webp" width="1254" height="1254" alt="Pilunia umarmt ein Herz" loading="lazy">
+        <div class="download-copy"><h2 id="download-title">Ein kleiner Helfer <span class="mobile-break">für jeden Tag.</span></h2><p>Lade Pilunia für dein Android-Handy herunter.<br class="desktop-label"> Die aktuelle APK findest du im neuesten GitHub Release.</p><a class="button" href="https://github.com/sirkyomi/Pilunia/releases/latest">APK herunterladen</a><p class="install-note">APK laden, öffnen und die Installation aus dieser Quelle erlauben.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer container">
+    <a class="wordmark" href="./" aria-label="Pilunia Startseite">pilunia</a>
+    <p class="footer-claim">Deine Medikamente. <span class="mobile-break">Liebevoll im Blick.</span></p>
+    <a class="footer-license" href="lizenzen.html">Lizenzen</a>
+    <p class="medical-note">Pilunia ersetzt keine ärztliche Beratung.</p>
+    <a class="copyright" href="https://eliasregber.de">© 2026 Elias-Constantin Regber</a>
+  </footer>
+</body>
+</html>
