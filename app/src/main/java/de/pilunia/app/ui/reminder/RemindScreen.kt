@@ -64,10 +64,10 @@ internal class RemindActions(
  * und 08b (mehrere Medikamente) – Variante je nach Inhalt des Zeitpunkts.
  */
 @Composable
-internal fun RemindScreen(data: SlotData, minute: Int, busy: Boolean, actions: RemindActions) {
+internal fun RemindScreen(data: SlotData, minute: Int, busy: Boolean, actions: RemindActions, preview: Boolean = false) {
     val c = Pilunia.colors
     val slot = data.slot
-    ReminderScaffold(Modifier.screenBackground(c, fadeEnd = 0.6f), actions.onClose) { scale ->
+    ReminderScaffold(Modifier.screenBackground(c, fadeEnd = 0.6f), actions.onClose, preview = preview) { scale ->
         when {
             slot.size > 1 -> MultiContent(data, minute, scale, busy, actions)
             slot.size == 1 && slot[0].dose.amount >= 2 -> DoubleContent(data, slot[0], minute, scale, busy, actions)

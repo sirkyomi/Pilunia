@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -181,11 +182,20 @@ internal val ScrimColor = Color(0xFF2E2440).copy(alpha = 0.5f)
 internal fun ReminderScaffold(
     background: Modifier,
     onClose: () -> Unit,
+    preview: Boolean = false,
     content: @Composable ColumnScope.(scale: Float) -> Unit,
 ) {
     Column(Modifier.fillMaxSize().then(background)) {
         StatusBarSpace()
-        CloseBar(onClose)
+        Box(Modifier.fillMaxWidth()) {
+            CloseBar(onClose)
+            if (preview) Text(
+                "Vorschau · Beispieldaten",
+                style = atkinson(14, 700),
+                color = Pilunia.colors.tinteGedaempft,
+                modifier = Modifier.align(Alignment.CenterStart).padding(start = 20.dp, end = 64.dp),
+            )
+        }
         BoxWithConstraints(Modifier.weight(1f).fillMaxWidth()) {
             val scale = (maxHeight / 795.dp).coerceIn(0.6f, 1f)
             Column(

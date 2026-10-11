@@ -48,6 +48,7 @@ import de.pilunia.app.ui.components.rememberSettings
 import de.pilunia.app.ui.nav.LocalContainer
 import de.pilunia.app.ui.nav.Routes
 import de.pilunia.app.ui.nav.SettingsPage
+import de.pilunia.app.ui.reminder.ReminderExample
 import de.pilunia.app.ui.theme.Pilunia
 import de.pilunia.app.ui.theme.atkinson
 import kotlinx.coroutines.launch
@@ -157,6 +158,18 @@ fun NotificationsScreen(nav: NavController) {
                 onClick = { nav.navigate(Routes.settings(SettingsPage.SOUND)) },
             )
         }
+
+        SettingsGroup("Vollbild-Beispiele") {
+            ReminderExample.entries.forEachIndexed { index, example ->
+                ListRow(
+                    title = example.label,
+                    subtitle = "Vollbild-Erinnerung ansehen",
+                    last = index == ReminderExample.entries.lastIndex,
+                    onClick = { nav.navigate(Routes.reminderExample(example.name)) },
+                )
+            }
+        }
+        SettingsNote("Die Beispiele verwenden Beispieldaten. Es werden keine Einnahmen gespeichert oder Erinnerungen ausgelöst.")
 
         SettingsGroup("Vorrat") {
             SwitchRow("Vorratswarnung", "Wenn es nur noch 7 Tage reicht", s.stockWarningEnabled, { v ->
